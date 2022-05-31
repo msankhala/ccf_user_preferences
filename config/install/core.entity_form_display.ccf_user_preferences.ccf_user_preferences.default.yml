@@ -15,57 +15,35 @@ mode: default
 content:
   field_courses:
     type: options_select
-    weight: 30
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_dietary:
     type: options_select
-    weight: 29
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_exclusion:
     type: options_select
-    weight: 26
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
   field_meals:
     type: options_select
-    weight: 28
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_other_filters:
     type: options_select
-    weight: 27
+    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 2
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
-  name:
-    type: string_textfield
-    weight: -4
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  user_id:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  name: true
+  user_id: true
