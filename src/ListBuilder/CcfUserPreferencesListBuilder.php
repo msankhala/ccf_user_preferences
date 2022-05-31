@@ -27,7 +27,11 @@ class CcfUserPreferencesListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var \Drupal\ccf_user_preferences\Entity\CcfUserPreferences $entity */
-    $row['id'] = $entity->id();
+    $row['id'] = Link::createFromRoute(
+      $entity->id(),
+      'entity.ccf_user_preferences.edit_form',
+      ['ccf_user_preferences' => $entity->id()]
+    );
     $row['name'] = Link::createFromRoute(
       $entity->label(),
       'entity.ccf_user_preferences.edit_form',

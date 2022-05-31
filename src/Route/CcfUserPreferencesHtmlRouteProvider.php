@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ccf_user_preferences;
+namespace Drupal\ccf_user_preferences\Route;
 
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\Routing\AdminHtmlRouteProvider;
