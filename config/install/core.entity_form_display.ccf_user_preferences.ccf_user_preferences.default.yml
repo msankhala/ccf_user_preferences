@@ -8,39 +8,37 @@ dependencies:
     - field.field.ccf_user_preferences.ccf_user_preferences.field_exclusion
     - field.field.ccf_user_preferences.ccf_user_preferences.field_meals
     - field.field.ccf_user_preferences.ccf_user_preferences.field_other_filters
-  module:
-    - vanilla_selectbox_field
 id: ccf_user_preferences.ccf_user_preferences.default
 targetEntityType: ccf_user_preferences
 bundle: ccf_user_preferences
 mode: default
 content:
   field_courses:
-    type: vanilla_selectbox_select
+    type: options_select
     weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   field_dietary:
-    type: vanilla_selectbox_select
+    type: options_select
     weight: 29
     region: content
     settings: {  }
     third_party_settings: {  }
   field_exclusion:
-    type: vanilla_selectbox_select
+    type: options_select
     weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }
   field_meals:
-    type: vanilla_selectbox_select
+    type: options_select
     weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
   field_other_filters:
-    type: vanilla_selectbox_select
+    type: options_select
     weight: 27
     region: content
     settings: {  }
