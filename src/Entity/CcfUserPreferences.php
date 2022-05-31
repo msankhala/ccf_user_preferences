@@ -222,7 +222,7 @@ class CcfUserPreferences extends EditorialContentEntityBase implements CcfUserPr
       ])
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE)
-      ->setRequired(TRUE);
+      ->setRequired(FALSE);
 
     $fields['status']->setDescription(t('A boolean indicating whether the Ccf user preferences is published.'))
       ->setDisplayOptions('form', [
