@@ -1,5 +1,5 @@
 name: 'CCF User Preferences'
 type: module
 description: 'This module provices a custom entity to store the user preferences and api endpoints.'
-core: 8.x
+core_version_requirement: ^8 || ^9
 package: 'CCF'
