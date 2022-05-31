@@ -26,10 +26,44 @@ function ccf_user_preferences_help($route_name, RouteMatchInterface $route_match
 /**
  * Implements hook_theme().
  */
+// function ccf_user_preferences_theme() {
+//   return [
+//     'ccf_user_preferences' => [
+//       'render element' => 'children',
+//     ],
+//   ];
+// }
+
+/**
+ * Implements hook_theme().
+ */
 function ccf_user_preferences_theme() {
-  return [
-    'ccf_user_preferences' => [
-      'render element' => 'children',
-    ],
+  $theme = [];
+  $theme['ccf_user_preferences'] = [
+    'render element' => 'elements',
+    'file' => 'ccf_user_preferences.page.inc',
+    'template' => 'ccf_user_preferences',
   ];
+  $theme['ccf_user_preferences_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'ccf_user_preferences.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function ccf_user_preferences_theme_suggestions_ccf_user_preferences(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#ccf_user_preferences'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'ccf_user_preferences__' . $sanitized_view_mode;
+  $suggestions[] = 'ccf_user_preferences__' . $entity->bundle();
+  $suggestions[] = 'ccf_user_preferences__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'ccf_user_preferences__' . $entity->id();
+  $suggestions[] = 'ccf_user_preferences__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
 }

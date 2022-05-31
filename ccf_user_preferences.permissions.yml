@@ -1,0 +1,33 @@
+add ccf user preferences entities:
+  title: 'Create new Ccf user preferences entities'
+
+administer ccf user preferences entities:
+  title: 'Administer Ccf user preferences entities'
+  description: 'Allow to access the administration form to configure Ccf user preferences entities.'
+  restrict access: true
+
+delete ccf user preferences entities:
+  title: 'Delete Ccf user preferences entities'
+
+edit ccf user preferences entities:
+  title: 'Edit Ccf user preferences entities'
+
+view published ccf user preferences entities:
+  title: 'View published Ccf user preferences entities'
+
+view unpublished ccf user preferences entities:
+  title: 'View unpublished Ccf user preferences entities'
+
+view all ccf user preferences revisions:
+  title: 'View all Ccf user preferences revisions'
+
+revert all ccf user preferences revisions:
+  title: 'Revert all Ccf user preferences revisions'
+  description: 'Role requires permission <em>view Ccf user preferences revisions</em> and <em>edit rights</em> for ccf user preferences entities in question or <em>administer ccf user preferences entities</em>.'
+
+delete all ccf user preferences revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Ccf user preferences revisions</em> and <em>delete rights</em> for ccf user preferences entities in question or <em>administer ccf user preferences entities</em>.'
+
+permission_callbacks:
+  - \Drupal\ccf_user_preferences\Access\CcfUserPreferencesPermissions::generatePermissions

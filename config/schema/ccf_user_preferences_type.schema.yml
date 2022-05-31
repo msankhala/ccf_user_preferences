@@ -1,0 +1,12 @@
+ccf_user_preferences.ccf_user_preferences_type.*:
+  type: config_entity
+  label: 'Ccf user preferences type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

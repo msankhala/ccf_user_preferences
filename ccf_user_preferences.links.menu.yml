@@ -1,0 +1,8 @@
+
+# Ccf user preferences type menu items definition
+entity.ccf_user_preferences_type.collection:
+  title: 'Ccf user preferences type'
+  route_name: entity.ccf_user_preferences_type.collection
+  description: 'List Ccf user preferences type (bundles)'
+  parent: system.admin_structure
+  weight: 99
