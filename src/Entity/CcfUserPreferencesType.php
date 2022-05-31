@@ -31,11 +31,11 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "canonical" = "/admin/people/ccf_user_preferences_type/{ccf_user_preferences_type}",
- *     "add-form" = "/admin/people/ccf_user_preferences_type/add",
- *     "edit-form" = "/admin/people/ccf_user_preferences_type/{ccf_user_preferences_type}/edit",
- *     "delete-form" = "/admin/people/ccf_user_preferences_type/{ccf_user_preferences_type}/delete",
- *     "collection" = "/admin/people/ccf_user_preferences_type"
+ *     "canonical" = "/admin/structure/ccf_user_preferences_type/{ccf_user_preferences_type}",
+ *     "add-form" = "/admin/structure/ccf_user_preferences_type/add",
+ *     "edit-form" = "/admin/structure/ccf_user_preferences_type/{ccf_user_preferences_type}/edit",
+ *     "delete-form" = "/admin/structure/ccf_user_preferences_type/{ccf_user_preferences_type}/delete",
+ *     "collection" = "/admin/structure/ccf_user_preferences_type"
  *   },
  *   config_export = {
  *     "id",

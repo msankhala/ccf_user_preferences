@@ -32,6 +32,15 @@ use Drupal\user\UserInterface;
  *     "views_data" = "Drupal\ccf_user_preferences\Entity\CcfUserPreferencesViewsData",
  *     "translation" = "Drupal\ccf_user_preferences\Translation\CcfUserPreferencesTranslationHandler",
  *
+ *     "form" = {
+ *       "default" = "Drupal\ccf_user_preferences\Form\CcfUserPreferencesForm",
+ *       "add" = "Drupal\ccf_user_preferences\Form\CcfUserPreferencesForm",
+ *       "edit" = "Drupal\ccf_user_preferences\Form\CcfUserPreferencesForm",
+ *       "delete" = "Drupal\ccf_user_preferences\Form\CcfUserPreferencesDeleteForm",
+ *     },
+ *     "route_provider" = {
+ *       "html" = "Drupal\ccf_user_preferences\Route\CcfUserPreferencesHtmlRouteProvider",
+ *     },
  *     "access" = "Drupal\ccf_user_preferences\Access\CcfUserPreferencesAccessControlHandler",
  *   },
  *   base_table = "ccf_user_preferences",
@@ -39,7 +48,6 @@ use Drupal\user\UserInterface;
  *   revision_table = "ccf_user_preferences_revision",
  *   revision_data_table = "ccf_user_preferences_field_revision",
  *   translatable = TRUE,
- *   permission_granularity = "bundle",
  *   admin_permission = "administer ccf user preferences entities",
  *   entity_keys = {
  *     "id" = "id",
@@ -50,6 +58,19 @@ use Drupal\user\UserInterface;
  *     "uid" = "user_id",
  *     "langcode" = "langcode",
  *     "published" = "status",
+ *   },
+ *   links = {
+ *     "canonical" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}",
+ *     "add-page" = "/admin/structure/ccf_user_preferences/add",
+ *     "add-form" = "/admin/structure/ccf_user_preferences/add/{ccf_user_preferences_type}",
+ *     "edit-form" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/edit",
+ *     "delete-form" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/delete",
+ *     "version-history" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/revisions",
+ *     "revision" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/revisions/{ccf_user_preferences_revision}/view",
+ *     "revision_revert" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/revisions/{ccf_user_preferences_revision}/revert",
+ *     "revision_delete" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/revisions/{ccf_user_preferences_revision}/delete",
+ *     "translation_revert" = "/admin/structure/ccf_user_preferences/{ccf_user_preferences}/revisions/{ccf_user_preferences_revision}/revert/{langcode}",
+ *     "collection" = "/admin/structure/ccf_user_preferences",
  *   },
  *   bundle_entity_type = "ccf_user_preferences_type",
  *   field_ui_base_route = "entity.ccf_user_preferences_type.edit_form"

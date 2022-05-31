@@ -26,17 +26,6 @@ function ccf_user_preferences_help($route_name, RouteMatchInterface $route_match
 /**
  * Implements hook_theme().
  */
-// function ccf_user_preferences_theme() {
-//   return [
-//     'ccf_user_preferences' => [
-//       'render element' => 'children',
-//     ],
-//   ];
-// }
-
-/**
- * Implements hook_theme().
- */
 function ccf_user_preferences_theme() {
   $theme = [];
   $theme['ccf_user_preferences'] = [
@@ -67,3 +56,4 @@ function ccf_user_preferences_theme_suggestions_ccf_user_preferences(array $vari
   $suggestions[] = 'ccf_user_preferences__' . $entity->id() . '__' . $sanitized_view_mode;
   return $suggestions;
 }
+

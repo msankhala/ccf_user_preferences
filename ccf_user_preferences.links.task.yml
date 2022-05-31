@@ -1,0 +1,22 @@
+# Ccf user preferences routing definition
+
+entity.ccf_user_preferences.canonical:
+  route_name: entity.ccf_user_preferences.canonical
+  base_route: entity.ccf_user_preferences.canonical
+  title: 'View'
+
+entity.ccf_user_preferences.edit_form:
+  route_name: entity.ccf_user_preferences.edit_form
+  base_route: entity.ccf_user_preferences.canonical
+  title: 'Edit'
+
+entity.ccf_user_preferences.version_history:
+  route_name: entity.ccf_user_preferences.version_history
+  base_route: entity.ccf_user_preferences.canonical
+  title: 'Revisions'
+
+entity.ccf_user_preferences.delete_form:
+  route_name:  entity.ccf_user_preferences.delete_form
+  base_route:  entity.ccf_user_preferences.canonical
+  title: Delete
+  weight: 10

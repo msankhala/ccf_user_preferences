@@ -1,0 +1,22 @@
+{#
+/**
+ * @file ccf_user_preferences.html.twig
+ * Default theme implementation to present Ccf user preferences data.
+ *
+ * This template is used when viewing Ccf user preferences pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_ccf_user_preferences()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('ccf_user_preferences') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>
