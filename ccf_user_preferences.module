@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains ccf_user_preferences.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ccf_user_preferences_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ccf_user_preferences module.
+    case 'help.page.ccf_user_preferences':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provices a custom entity to store the user preferences and api endpoints.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ccf_user_preferences_theme() {
+  return [
+    'ccf_user_preferences' => [
+      'render element' => 'children',
+    ],
+  ];
+}
