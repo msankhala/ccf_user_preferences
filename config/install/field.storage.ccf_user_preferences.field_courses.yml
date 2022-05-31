@@ -1,0 +1,48 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ccf_user_preferences
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ccf_user_preferences.field_courses
+field_name: field_courses
+entity_type: ccf_user_preferences
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: is_main_course
+      label: 'Main course'
+    -
+      value: is_side_dish
+      label: 'Side dish'
+    -
+      value: is_starter
+      label: Starter
+    -
+      value: is_soup
+      label: Soup
+    -
+      value: is_dessert
+      label: Dessert
+    -
+      value: is_salad
+      label: Salad
+    -
+      value: is_sandwich
+      label: Sandwich
+    -
+      value: is_drink
+      label: Drink
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

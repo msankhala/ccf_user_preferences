@@ -1,0 +1,96 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ccf_user_preferences
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ccf_user_preferences.field_other_filters
+field_name: field_other_filters
+entity_type: ccf_user_preferences
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: is_adult_food_ready_to_eat
+      label: 'Adult food ready to eat'
+    -
+      value: is_pie
+      label: Pie
+    -
+      value: is_pasta
+      label: Pasta
+    -
+      value: is_no_sugar_added
+      label: 'No sugar added'
+    -
+      value: is_no_oil_added
+      label: 'No oil added'
+    -
+      value: is_low_sugar
+      label: 'Low sugar'
+    -
+      value: is_low_sodium
+      label: 'Low sodium'
+    -
+      value: is_low_potassium
+      label: 'Low potassium'
+    -
+      value: is_low_fat_abs
+      label: 'Low fat abs'
+    -
+      value: is_low_fat
+      label: 'Low fat'
+    -
+      value: is_low_carb
+      label: 'Low carb'
+    -
+      value: is_kidney_friendly
+      label: 'Kidney friendly'
+    -
+      value: is_high_protein
+      label: 'High protein'
+    -
+      value: is_high_fiber
+      label: 'High fiber'
+    -
+      value: is_ingredient
+      label: Ingredient
+    -
+      value: is_generic
+      label: Generic
+    -
+      value: is_cooked
+      label: Cooked
+    -
+      value: is_cereal
+      label: Cereal
+    -
+      value: is_bread
+      label: Bread
+    -
+      value: is_branded
+      label: Branded
+    -
+      value: is_biscuit
+      label: Biscuit
+    -
+      value: is_balanced
+      label: Balanced
+    -
+      value: is_vegetable
+      label: Vegetable
+    -
+      value: is_sugar_conscious
+      label: 'Sugar conscious'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

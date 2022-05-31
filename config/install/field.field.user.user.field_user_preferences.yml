@@ -1,0 +1,29 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - ccf_user_preferences.ccf_user_preferences_type.ccf_user_preferences
+    - field.storage.user.field_user_preferences
+  module:
+    - user
+id: user.user.field_user_preferences
+field_name: field_user_preferences
+entity_type: user
+bundle: user
+label: 'User Preferences'
+description: 'Please select the user preferences that you like to have.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:ccf_user_preferences'
+  handler_settings:
+    target_bundles:
+      ccf_user_preferences: ccf_user_preferences
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

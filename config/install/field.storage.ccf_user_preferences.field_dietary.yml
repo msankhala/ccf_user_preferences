@@ -1,0 +1,69 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ccf_user_preferences
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ccf_user_preferences.field_dietary
+field_name: field_dietary
+entity_type: ccf_user_preferences
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: is_cded
+      label: 'Crohn''s Desease Exclusion Diet'
+    -
+      value: is_fodmap_free
+      label: 'Low FODMAP Diet'
+    -
+      value: is_mediterranean
+      label: 'Mediterranean Diet'
+    -
+      value: is_specific_carbohydrates
+      label: 'Specific Carbohydrates Diet'
+    -
+      value: is_vegetarian
+      label: Vegetarian
+    -
+      value: is_vegan
+      label: Vegan
+    -
+      value: is_plant_based
+      label: 'Plant based'
+    -
+      value: is_pescatarian
+      label: Pescatarian
+    -
+      value: is_paleo
+      label: Paleo
+    -
+      value: is_keto_friendly
+      label: 'Keto friendly'
+    -
+      value: is_dash
+      label: DASH
+    -
+      value: is_kosher
+      label: Kosher
+    -
+      value: is_cded_phase1
+      label: 'CDED Phase 1'
+    -
+      value: is_cded_phase2
+      label: 'CDED Phase 2'
+    -
+      value: is_cded_phase3
+      label: 'CDED Phase 3'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

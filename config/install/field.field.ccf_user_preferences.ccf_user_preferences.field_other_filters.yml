@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - ccf_user_preferences.ccf_user_preferences_type.ccf_user_preferences
+    - field.storage.ccf_user_preferences.field_other_filters
+  module:
+    - options
+id: ccf_user_preferences.ccf_user_preferences.field_other_filters
+field_name: field_other_filters
+entity_type: ccf_user_preferences
+bundle: ccf_user_preferences
+label: 'Other Filters'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

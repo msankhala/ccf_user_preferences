@@ -1,0 +1,71 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - ccf_user_preferences.ccf_user_preferences_type.ccf_user_preferences
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_courses
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_dietary
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_exclusion
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_meals
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_other_filters
+  module:
+    - options
+    - user
+id: ccf_user_preferences.ccf_user_preferences.default
+targetEntityType: ccf_user_preferences
+bundle: ccf_user_preferences
+mode: default
+content:
+  field_courses:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_dietary:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_exclusion:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_meals:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_other_filters:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -4
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

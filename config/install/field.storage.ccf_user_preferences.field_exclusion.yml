@@ -1,0 +1,84 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ccf_user_preferences
+    - field_permissions
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: ccf_user_preferences.field_exclusion
+field_name: field_exclusion
+entity_type: ccf_user_preferences
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: is_dairy_free
+      label: 'Dairy free'
+    -
+      value: is_lactose_free
+      label: 'Lactose free'
+    -
+      value: is_gluten_free
+      label: 'Gluten free'
+    -
+      value: is_grain_free
+      label: 'Grain free'
+    -
+      value: is_egg_free
+      label: 'Egg free'
+    -
+      value: is_fish_free
+      label: 'Fish free'
+    -
+      value: is_crustacean_free
+      label: 'Crustacean free'
+    -
+      value: is_peanut_free
+      label: 'Peanut free'
+    -
+      value: is_tree_nut_free
+      label: 'Tree nut-free'
+    -
+      value: is_soy_free
+      label: 'Soy free'
+    -
+      value: is_pork_free
+      label: 'Pork free'
+    -
+      value: is_shellfish_free
+      label: 'Shellfish free'
+    -
+      value: is_sulfite_free
+      label: 'Sulfite free'
+    -
+      value: is_lupine_free
+      label: 'Lupine free'
+    -
+      value: is_mustard_free
+      label: 'Mustard free'
+    -
+      value: is_celery_free
+      label: 'Celery free'
+    -
+      value: is_red_meat_free
+      label: 'Red meat free'
+    -
+      value: is_sesame_free
+      label: 'Sesame free'
+    -
+      value: is_fat_free
+      label: 'Fat free'
+    -
+      value: is_alcohol_free
+      label: 'Alcohol free'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

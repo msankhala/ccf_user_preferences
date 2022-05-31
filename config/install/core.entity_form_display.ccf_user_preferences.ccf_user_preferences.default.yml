@@ -1,0 +1,73 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - ccf_user_preferences.ccf_user_preferences_type.ccf_user_preferences
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_courses
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_dietary
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_exclusion
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_meals
+    - field.field.ccf_user_preferences.ccf_user_preferences.field_other_filters
+  module:
+    - vanilla_selectbox_field
+id: ccf_user_preferences.ccf_user_preferences.default
+targetEntityType: ccf_user_preferences
+bundle: ccf_user_preferences
+mode: default
+content:
+  field_courses:
+    type: vanilla_selectbox_select
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_dietary:
+    type: vanilla_selectbox_select
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_exclusion:
+    type: vanilla_selectbox_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_meals:
+    type: vanilla_selectbox_select
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_other_filters:
+    type: vanilla_selectbox_select
+    weight: 27
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
