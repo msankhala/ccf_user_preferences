@@ -36,6 +36,13 @@ use Drupal\Core\Config\Entity\ConfigEntityBundleBase;
  *     "edit-form" = "/admin/people/ccf_user_preferences_type/{ccf_user_preferences_type}/edit",
  *     "delete-form" = "/admin/people/ccf_user_preferences_type/{ccf_user_preferences_type}/delete",
  *     "collection" = "/admin/people/ccf_user_preferences_type"
+ *   },
+ *   config_export = {
+ *     "id",
+ *     "label",
+ *     "uuid",
+ *     "bundle",
+ *     "uid",
  *   }
  * )
  */

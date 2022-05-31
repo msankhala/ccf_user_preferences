@@ -20,6 +20,11 @@ use Drupal\user\UserInterface;
  *   id = "ccf_user_preferences",
  *   label = @Translation("Ccf user preferences"),
  *   bundle_label = @Translation("Ccf user preferences type"),
+ *   revision_metadata_keys = {
+ *      "revision_user" = "revision_user",
+ *      "revision_created" = "revision_created",
+ *      "revision_log_message" = "revision_log_message",
+ *    },
  *   handlers = {
  *     "storage" = "Drupal\ccf_user_preferences\Storage\CcfUserPreferencesStorage",
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
