@@ -13,8 +13,7 @@ use Drupal\ccf_user_preferences\Entity\CcfUserPreferences;
 use Drupal\rest\ResourceResponse;
 
 /**
- * Provides REST API for User preferences Details based
- * on URL.
+ * Provides REST API for User preferences Details.
  *
  * @RestResource(
  *   id = "get_user_preferences_rest_resource",
@@ -44,9 +43,13 @@ class GetUserPreferences extends ResourceBase {
   /**
    * Array mapping keys & fields.
    *
-   * @return void
+   * @var array
    */
-  public $mapper = ['tagsDietary' => 'field_dietary', 'tagsExclusion' => 'field_exclusion', 'tagsMeal' => 'field_meals'];
+  public $mapper = [
+    'tagsDietary' => 'field_dietary',
+    'tagsExclusion' => 'field_exclusion',
+    'tagsMeal' => 'field_meals',
+  ];
 
   /**
    * Constructor function.
