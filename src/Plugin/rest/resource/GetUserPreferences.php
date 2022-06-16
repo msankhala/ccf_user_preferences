@@ -1,9 +1,9 @@
 <?php
+
 namespace Drupal\ccf_user_preferences\Plugin\rest\resource;
 
 use Drupal\rest\Plugin\ResourceBase;
 use Drupal\user\Entity\User;
-use Drupal\paragraphs\Entity\Paragraph;
 use Drupal\rest\ModifiedResourceResponse;
 use Drupal\jwt\Transcoder\JwtTranscoderInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -42,7 +42,7 @@ class GetUserPreferences extends ResourceBase {
   protected $transcoder;
 
   /**
-   * Array mapping keys & fields
+   * Array mapping keys & fields.
    *
    * @return void
    */
@@ -76,9 +76,9 @@ class GetUserPreferences extends ResourceBase {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static ($configuration, $plugin_id, $plugin_definition, $container->getParameter('serializer.formats') , $container->get('logger.factory')
-      ->get('rest') , $container->get('request_stack')
-      ->getCurrentRequest() , $container->get('jwt.transcoder'));
+    return new static($configuration, $plugin_id, $plugin_definition, $container->getParameter('serializer.formats'), $container->get('logger.factory')
+      ->get('rest'), $container->get('request_stack')
+      ->getCurrentRequest(), $container->get('jwt.transcoder'));
   }
 
   /**
@@ -101,13 +101,13 @@ class GetUserPreferences extends ResourceBase {
         $message['error'] = "Token is invalid";
         return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
       }
-      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()) , true);
+      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()), TRUE);
       $uid = $decoded_token_array['drupal']['uid'];
       if (!$uid) {
         $message['error'] = "Token is invalid";
         return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
       }
-      // Get user preferences_entity_id
+      // Get user preferences_entity_id.
       $user = User::load($uid);
       if (!$user) {
         $message['error'] = "User doesnot exists";
@@ -119,11 +119,11 @@ class GetUserPreferences extends ResourceBase {
           ->getTarget()
           ->getValue();
         foreach ($this->mapper as $nestle_key => $drupal_field_name) {
-          $data['preferences'][$nestle_key] = array_column($user_preferences->get($drupal_field_name)->getValue() , 'value');
+          $data['preferences'][$nestle_key] = array_column($user_preferences->get($drupal_field_name)->getValue(), 'value');
         }
       }
     }
-    catch(\Exception $e) {
+    catch (\Exception $e) {
       $data['error'] = $e->getMessage();
       return new ModifiedResourceResponse($data, ResourceResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
@@ -153,7 +153,7 @@ class GetUserPreferences extends ResourceBase {
         $message['error'] = "Token is invalid";
         return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
       }
-      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()) , true);
+      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()), TRUE);
       $uid = $decoded_token_array['drupal']['uid'];
       if (!$uid) {
         $message['error'] = "Token is invalid";
@@ -168,7 +168,7 @@ class GetUserPreferences extends ResourceBase {
       $user_preferences_entity = $user->get('field_user_preferences')
         ->first();
       if ($user_preferences_entity) {
-        $user_preferences_id = $user_preferences_entity->getValue() ['target_id'];
+        $user_preferences_id = $user_preferences_entity->getValue()['target_id'];
         $entity_update = CcfUserPreferences::load($user_preferences_id);
         foreach ($this->mapper as $nestle_key => $drupal_field_name) {
           if (!empty($user_preferences[$nestle_key])) {
@@ -193,10 +193,11 @@ class GetUserPreferences extends ResourceBase {
       $message['message'] = "Successfully Updated";
       return new ModifiedResourceResponse($message);
     }
-    catch(\Exception $e) {
+    catch (\Exception $e) {
       $message['error'] = $e->getMessage();
       return new ModifiedResourceResponse($message, ResourceResponse::HTTP_UNPROCESSABLE_ENTITY);
     }
   }
+
 }
 
