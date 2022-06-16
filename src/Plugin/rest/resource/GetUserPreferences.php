@@ -107,7 +107,6 @@ class GetUserPreferences extends ResourceBase
           if(is_object($decoded_token)) {
             $decoded_token_array =json_decode(json_encode($decoded_token->getPayload()),true);
             $uid = $decoded_token_array['drupal']['uid'];
-            $uid = 4041;
             if($uid) {
               // Get user preferences_entity_id
               $user = User::load($uid);
@@ -149,7 +148,6 @@ class GetUserPreferences extends ResourceBase
             $decoded_token_array =json_decode(json_encode($decoded_token->getPayload()),true);
             $uid = $decoded_token_array['drupal']['uid'];
             $user_preferences = $data['preferences'];
-            $uid = 4041;
             $user = User::load($uid);
             if($user) {
               $user_preferences_entity =  $user->get('field_user_preferences')->first();
