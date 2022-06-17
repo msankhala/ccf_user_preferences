@@ -95,27 +95,15 @@ class GetUserPreferences extends ResourceBase {
     $user_preferences = [];
     try {
       if (!($this->request->query->has('jwt_token'))) {
-        $message['error'] = "JWT token is required to get proceed further";
+        $message['error'] = "JWT token is required to proceed further";
         return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
       }
       $jwt_token = $this->request->query->get('jwt_token');
-      $decoded_token = $this->transcoder->decode($jwt_token);
-      if (!is_object($decoded_token)) {
-        $message['error'] = "Token is invalid";
-        return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
+      $validator = $this->validateToken($jwt_token);
+      if (!$validator['flag']) {
+        return new ResourceResponse(['error' => $validator['error']], $validator['status_code']);
       }
-      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()), TRUE);
-      $uid = $decoded_token_array['drupal']['uid'];
-      if (!$uid) {
-        $message['error'] = "Token is invalid";
-        return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
-      }
-      // Get user preferences_entity_id.
-      $user = User::load($uid);
-      if (!$user) {
-        $message['error'] = "User doesnot exists";
-        return new ResourceResponse($message, ResourceResponse::HTTP_NOT_FOUND);
-      }
+      $user = $validator['user'];
       $user_preferences_id = $user->get('field_user_preferences')->first();
       if ($user_preferences_id) {
         $user_preferences = $user_preferences_id->get('entity')
@@ -147,27 +135,12 @@ class GetUserPreferences extends ResourceBase {
         return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
       }
       $jwt_token = $data['jwt_token'];
-      if (empty($jwt_token)) {
-        $message['error'] = "JWT token is required to get proceed further";
-        return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
+      $validator = $this->validateToken($jwt_token);
+      if (!$validator['flag']) {
+        return new ResourceResponse(['error' => $validator['error']], $validator['status_code']);
       }
-      $decoded_token = $this->transcoder->decode($jwt_token);
-      if (!is_object($decoded_token)) {
-        $message['error'] = "Token is invalid";
-        return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
-      }
-      $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()), TRUE);
-      $uid = $decoded_token_array['drupal']['uid'];
-      if (!$uid) {
-        $message['error'] = "Token is invalid";
-        return new ResourceResponse($message, ResourceResponse::HTTP_BAD_REQUEST);
-      }
+      $user = $validator['user'];
       $user_preferences = $data['preferences'];
-      $user = User::load($uid);
-      if (!$user) {
-        $message['error'] = "User doesnot exists";
-        return new ResourceResponse($message, ResourceResponse::HTTP_NOT_FOUND);
-      }
       $user_preferences_entity = $user->get('field_user_preferences')
         ->first();
       if ($user_preferences_entity) {
@@ -202,5 +175,41 @@ class GetUserPreferences extends ResourceBase {
     }
   }
 
-}
+  /**
+   * Validate JWT Token.
+   */
+  public function validateToken($jwt_token) {
+    $message['flag'] = FALSE;
+    if (empty($jwt_token)) {
+      $message['error'] = "JWT token is required to proceed further";
+      $message['status_code'] = ResourceResponse::HTTP_BAD_REQUEST;
+      return $message;
+    }
+    $decoded_token = $this->transcoder->decode($jwt_token);
+    if (!is_object($decoded_token)) {
+      $message['error'] = "Token is invalid";
+      $message['status_code'] = ResourceResponse::HTTP_BAD_REQUEST;
+      return $message;
+    }
+    $decoded_token_array = json_decode(json_encode($decoded_token->getPayload()), TRUE);
+    $uid = $decoded_token_array['drupal']['uid'];
+    if ($uid == 0) {
+      $message['error'] = "Anonymous user doesn't have any user preferences.";
+      $message['status_code'] = ResourceResponse::HTTP_BAD_REQUEST;
+      return $message;
+    }
+    $user = User::load($uid);
+    if (!$user) {
+      $message['error'] = "User doesnot exists";
+      $message['status_code'] = ResourceResponse::HTTP_BAD_REQUEST;
+      return $message;
+    }
+    else {
+      $message['flag'] = TRUE;
+      $message['user'] = $user;
+    }
+    return $message;
 
+  }
+
+}
